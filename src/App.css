@@ -1,0 +1,23 @@
+/* ── Global Reset & Base ────────────────────────────────────── */
+body {
+  margin: 0;
+  padding: 0;
+  background: #020617;
+  color: #e0f4ff;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Override the Tailwind default bg for the main wrapper */
+.p-6.bg-gray-100.min-h-screen.w-full {
+  background: transparent !important;
+  padding: 0 !important;
+}

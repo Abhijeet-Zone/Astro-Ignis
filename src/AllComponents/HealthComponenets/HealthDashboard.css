@@ -1,0 +1,430 @@
+/* HealthDashboard.css - Updated to match new premium UI/UX */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.health-dashboard-wrapper {
+  font-family: 'Inter', sans-serif;
+  color: #f1f5f9;
+  background-color: #030712;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* --- Hero Section --- */
+.health-hero {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 58, 138, 0.4));
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.health-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-text-area h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: #f8fafc;
+}
+
+.text-highlight {
+  color: #60a5fa;
+}
+
+.hero-text-area p {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.hero-tabs {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-tab {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(100, 116, 139, 0.3);
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.hero-tab:hover {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(96, 165, 250, 0.5);
+  transform: translateY(-2px);
+}
+
+.hero-tab.active {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(96, 165, 250, 0.6);
+  box-shadow: inset 0 0 15px rgba(59, 130, 246, 0.2);
+}
+
+.hero-tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-tab-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.tab-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #f8fafc;
+}
+
+.tab-subtitle {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* Background element to simulate the astronaut background effect */
+.hero-bg-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 60%;
+  background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.2), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* --- Main Content Panel --- */
+.health-main-panel {
+  width: 100%;
+  max-width: 1200px;
+  background: #0b1121;
+  border-radius: 16px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.panel-title h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(71, 85, 105, 0.5);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  width: 250px;
+  transition: border-color 0.2s;
+}
+
+.search-bar:focus-within {
+  border-color: #60a5fa;
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  color: #f8fafc;
+  outline: none;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.search-bar input::placeholder {
+  color: #64748b;
+}
+
+.filter-btn {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(71, 85, 105, 0.5);
+  border-radius: 8px;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  background: rgba(30, 41, 59, 1);
+  border-color: #60a5fa;
+}
+
+/* --- Table Styles --- */
+.table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(30, 41, 59, 0.8);
+}
+
+.health-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.health-table th {
+  padding: 1rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #60a5fa;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.th-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.health-table td {
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+.health-table tr:last-child td {
+  border-bottom: none;
+}
+
+.health-table tr {
+  transition: background 0.2s ease;
+}
+
+.health-table tr:hover {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+.problem-cell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 500;
+  color: #f8fafc;
+}
+
+/* Icons styling based on category */
+.icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.muscle-icon { background: rgba(217, 70, 239, 0.15); }
+.bone-icon { background: rgba(14, 165, 233, 0.15); }
+.fluid-icon { background: rgba(59, 130, 246, 0.15); }
+.eye-icon { background: rgba(139, 92, 246, 0.15); }
+.shield-icon { background: rgba(34, 197, 94, 0.15); }
+.radiation-icon { background: rgba(239, 68, 68, 0.15); }
+.cell-icon { background: rgba(6, 182, 212, 0.15); }
+.moon-icon { background: rgba(168, 85, 247, 0.15); }
+.default-icon { background: rgba(148, 163, 184, 0.15); }
+
+/* Status Pill */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.status-active {
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  background: rgba(74, 222, 128, 0.1);
+}
+
+.status-research {
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  background: rgba(251, 191, 36, 0.1);
+}
+
+.row-action-btn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.row-action-btn:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+}
+
+
+/* --- Bottom Summary Bar --- */
+.summary-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.summary-card {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.2s;
+}
+
+.summary-card:hover {
+  transform: translateY(-3px);
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.summary-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active-control .summary-icon {
+  background: rgba(34, 197, 94, 0.15);
+}
+
+.research-progress .summary-icon {
+  background: rgba(245, 158, 11, 0.15);
+}
+
+.total-issues .summary-icon {
+  background: rgba(59, 130, 246, 0.15);
+}
+
+.mission-focus .summary-icon {
+  background: rgba(168, 85, 247, 0.15);
+}
+
+.summary-number {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.active-control .summary-number { color: #4ade80; }
+.research-progress .summary-number { color: #fbbf24; }
+.total-issues .summary-number { color: #60a5fa; }
+.mission-focus .summary-number { color: #c084fc; }
+
+.percent {
+  font-size: 1.25rem;
+  margin-left: 2px;
+}
+
+.summary-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sum-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.sum-sub {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .hero-tabs {
+    flex-direction: column;
+  }
+  .summary-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .summary-bar {
+    grid-template-columns: 1fr;
+  }
+  .search-bar {
+    width: 100%;
+  }
+}
